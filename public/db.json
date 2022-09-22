@@ -1,0 +1,49 @@
+{
+    "vegitable": [
+        {
+            "name": "Огурец",
+            "weight": "600",
+            "image": "https://calorizator.ru/sites/default/files/imagecache/product_512/product/cucumber-1.jpg",
+            "post": "Андрей",
+            "price": "1000"
+        },   
+        {
+            "name": "Бульба",
+            "weight": "600",
+            "image": "https://kakvarim.ru/wp-content/uploads/2020/01/kak-varit-kartoshku-post.jpg",
+            "post": "Андрей",
+            "price": "1000"
+        }, 
+        {
+            "name": "Лук",
+            "weight": "600",
+            "image": "https://calorizator.ru/sites/default/files/imagecache/product_512/product/bulb-onion.jpg",
+            "post": "Андрей",
+            "price": "1000"
+        }, 
+        {
+            "name": "Перец",
+            "weight": "600",
+            "image": "https://e2.edimdoma.ru/data/ingredients/0000/1051/1051-ed4_wide.jpg",
+            "post": "Андрей",
+            "price": "1000"
+        },
+        {
+            "name": "Помидор",
+            "weight": "600",
+            "image": "https://m.dom-eda.com/uploads/images/catalog/item/c6ebcf64ba/e87b941b85_500.jpg",
+            "post": "Андрей",
+            "price": "1000"
+        },
+        {
+            "name": "Свекла",
+            "weight": "600",
+            "image": "https://m-fermer.by/images/svekla.png",
+            "post": "Андрей",
+            "price": "1000"
+        }
+    ],
+    "posts": [
+        "Андрей", "Максим", "Трофим"
+    ]
+}
