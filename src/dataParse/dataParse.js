@@ -7,8 +7,17 @@ class ParseData{
         return await res;
     }
 
-    addTovar = async (formData) => {
-        await fetch(this._url, formData);
+    newData = async (formData) => {
+        const res = await fetch('http://localhost:3000/changedTovar', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+
+        return await res;
     }
 }
 

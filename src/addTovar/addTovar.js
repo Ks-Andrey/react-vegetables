@@ -15,7 +15,9 @@ class AddTovar extends Component {
         postSend: '',
         tovarSend: '',
         priceSend: '',
-        weightSend: ''
+        weightSend: '',
+        loading: false,
+        error: false
     }
     
     getFormData = (e, input) => {
@@ -40,21 +42,31 @@ class AddTovar extends Component {
     }
 
     changeData = (e) => {
-        e.preventDefault();
+        e.preventDefault()
 
-        this.dataObj.getData()
-            .then(res => res.json())
-            .then(res => {
-                res.vegitable.forEach(item => {
-                    if (item.name == this.state.tovarSend && item.post == this.state.postSend) {
-                        item.weight = `${+item.weight + +this.state.weightSend}`;
-                        item.price = `${+item.price + +this.state.priceSend}`;
-                    }
-                });
+        this.setState({
+            loading: true
+        })
 
-                console.log(res);
+        const {weightSend, postSend, priceSend, tovarSend} = this.state;
 
-                return res;
+        const formD = {
+            name: tovarSend,
+            weight: weightSend,
+            post: postSend,
+            price: priceSend
+        }
+
+        console.log(formD);
+        this.dataObj.newData(formD)
+            .then(() => {
+                this.setState({
+                    loading: false
+                })
+            }).catch(() => {
+                this.setState({
+                    error: true
+                })
             })
     }
 
@@ -84,7 +96,7 @@ class AddTovar extends Component {
 
         return (
             <div className="form-container">
-                <form className="form">
+                <form className="form" onSubmit={(e) => {this.changeData(e);}}>
                     <div className="form-group mb-3">
                         <label htmlFor="post" className="mb-1">Поставщик</label>
                         <select id="post" value={postSend} onChange={(e) => this.getFormData(e, 'postSend')} className="form-select">{post}</select>
@@ -102,7 +114,7 @@ class AddTovar extends Component {
                         <input type="text" id="price" value={priceSend} onChange={(e) => this.getFormData(e, 'priceSend')} className="form-control" />
                     </div>
                     <div className="form-group">
-                        <button type="submit" onClick={(e) =>this. changeData(e)} className="w-100 mw-100 btn btn-primary">Submit</button>
+                        <button className="w-100 mw-100 btn btn-primary">Submit</button>
                     </div>
                 </form>
             </div>
