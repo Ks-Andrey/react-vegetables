@@ -74,11 +74,11 @@ class Vegitable extends Component {
     dataObj = new ParseData();
 
     getItems = () => {
-        this.dataObj.getData()
+        this.dataObj.getData('http://localhost:3000/vegitable')
             .then(res => res.json())
             .then(res => {
                 this.setState({
-                    items: res.vegitable
+                    items: res
                 })
             });
     }

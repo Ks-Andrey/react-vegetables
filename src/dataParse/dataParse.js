@@ -1,8 +1,8 @@
 class ParseData{
-    _url = 'db.json';
+    // _url = 'db.json';
 
-    getData = async () => {
-        const res = await fetch(this._url);
+    getData = async (url) => {
+        const res = await fetch(url);
 
         return await res;
     }

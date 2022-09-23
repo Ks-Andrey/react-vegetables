@@ -29,10 +29,10 @@ class AddTovar extends Component {
     dataObj = new ParseData();
 
     getTovarName = () => {
-        this.dataObj.getData()
+        this.dataObj.getData('http://localhost:3000/vegitable')
             .then(res => res.json())
             .then(res => {
-                const names = res.vegitable.map(items => items.name);
+                const names = res.map(items => items.name);
 
                 this.setState({
                     name: names,
@@ -71,12 +71,12 @@ class AddTovar extends Component {
     }
 
     getPosts = () => {
-        this.dataObj.getData()
+        this.dataObj.getData('http://localhost:3000/posts')
             .then(res => res.json())
             .then(res => {
                 this.setState({
-                    posts: res.posts,
-                    postSend: res.posts[0]
+                    posts: res,
+                    postSend: res[0]
                 })
             })
     }
