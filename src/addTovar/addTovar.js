@@ -1,9 +1,10 @@
 import { Component } from "react";
 import ParseData from "../dataParse/dataParse";
+import OkeySend from "../okeySend/okeySend";
 
 class AddTovar extends Component {
     constructor(props){
-        super();
+        super(props);
         this.getTovarName();
         this.getPosts();
     }
@@ -17,7 +18,8 @@ class AddTovar extends Component {
         priceSend: '',
         weightSend: '',
         loading: false,
-        error: false
+        error: false,
+        success: false
     }
     
     getFormData = (e, input) => {
@@ -44,10 +46,6 @@ class AddTovar extends Component {
     changeData = (e) => {
         e.preventDefault()
 
-        this.setState({
-            loading: true
-        })
-
         const {weightSend, postSend, priceSend, tovarSend} = this.state;
 
         const formD = {
@@ -58,20 +56,33 @@ class AddTovar extends Component {
         }
 
         console.log(formD);
-        this.dataObj.newData(formD)
+        
+        if (weightSend !== '' && postSend !== '' && priceSend !== '' && tovarSend !== '') {
+            this.setState({
+                loading: true
+            })
+            this.dataObj.newData(formD)
             .then(() => {
                 this.setState({
-                    loading: false
+                    loading: false,
+                    success: true
                 })
             }).catch(() => {
                 this.setState({
                     error: true
                 })
             })
+        }
+    }
+
+    closePopap = () => {
+        this.setState({
+            success: false
+        })
     }
 
     getPosts = () => {
-        this.dataObj.getData('http://localhost:3000/posts')
+        this.dataObj.getData('http://localhost:3000/postsTovar')
             .then(res => res.json())
             .then(res => {
                 this.setState({
@@ -82,7 +93,9 @@ class AddTovar extends Component {
     }
 
     render(){
-        const {name, posts, postSend, priceSend, weightSend, tovarSend} = this.state;
+        const {name, posts, postSend, priceSend, weightSend, tovarSend, success, loading} = this.state;
+
+        const okey = (success || loading) ? <OkeySend success={success} load={loading} closePopap={this.closePopap} /> : null;
 
         let nameTovars, post;
 
@@ -96,6 +109,7 @@ class AddTovar extends Component {
 
         return (
             <div className="form-container">
+                {okey}
                 <form className="form" onSubmit={(e) => {this.changeData(e);}}>
                     <div className="form-group mb-3">
                         <label htmlFor="post" className="mb-1">Поставщик</label>
@@ -114,7 +128,7 @@ class AddTovar extends Component {
                         <input type="text" id="price" value={priceSend} onChange={(e) => this.getFormData(e, 'priceSend')} className="form-control" />
                     </div>
                     <div className="form-group">
-                        <button className="w-100 mw-100 btn btn-primary">Submit</button>
+                        <button className="w-100 mw-100 btn btn-primary">Отправить</button>
                     </div>
                 </form>
             </div>

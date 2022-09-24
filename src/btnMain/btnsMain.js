@@ -7,12 +7,12 @@ const BtnCont = styled.div`
     align-items: center;
 `;
 
-function BtnsMain({openVegitable, openNewTovar}) {
+function BtnsMain({openVegitable, openNewTovar, openSellTovar}) {
     return (
         <BtnCont>
             <button onClick={() => {openVegitable();}} className="btn btn-primary">Товар в наличии</button>
             <button onClick={() => {openNewTovar()}} className="btn btn-primary">Прием товара</button>
-            <button className="btn btn-primary">Продать товар</button>
+            <button onClick={() => {openSellTovar()}} className="btn btn-primary">Продать товар</button>
         </BtnCont>
     );
 }

@@ -15,5 +15,113 @@
   ],
   "profile": {
     "name": "typicode"
-  }
+  },
+  "vegitable": [
+    {
+      "name": "Огурец",
+      "weight": "0",
+      "image": "https://calorizator.ru/sites/default/files/imagecache/product_512/product/cucumber-1.jpg",
+      "post": "Андрей",
+      "price": "0"
+    },
+    {
+      "name": "Бульба",
+      "weight": "0",
+      "image": "https://kakvarim.ru/wp-content/uploads/2020/01/kak-varit-kartoshku-post.jpg",
+      "post": "Андрей",
+      "price": "0"
+    },
+    {
+      "name": "Лук",
+      "weight": "0",
+      "image": "https://calorizator.ru/sites/default/files/imagecache/product_512/product/bulb-onion.jpg",
+      "post": "Андрей",
+      "price": "0"
+    },
+    {
+      "name": "Перец",
+      "weight": "0",
+      "image": "https://e2.edimdoma.ru/data/ingredients/0000/1051/1051-ed4_wide.jpg",
+      "post": "Андрей",
+      "price": "0"
+    },
+    {
+      "name": "Помидор",
+      "weight": "0",
+      "image": "https://m.dom-eda.com/uploads/images/catalog/item/c6ebcf64ba/e87b941b85_500.jpg",
+      "post": "Андрей",
+      "price": "0"
+    },
+    {
+      "name": "Свекла",
+      "weight": "0",
+      "image": "https://m-fermer.by/images/svekla.png",
+      "post": "Андрей",
+      "price": "0"
+    }
+  ],
+  "postsTovar": [
+    "Андрей",
+    "Максим",
+    "Трофим",
+    "Ден"
+  ],
+  "changedTovar": [
+    {
+      "name": "Лук",
+      "weight": "100",
+      "post": "Андрей",
+      "price": "200",
+      "id": 1
+    },
+    {
+      "name": "Огурец",
+      "weight": "211",
+      "post": "Андрей",
+      "price": "32",
+      "id": 2
+    },
+    {
+      "name": "Свекла",
+      "weight": "111",
+      "post": "Андрей",
+      "price": "22",
+      "id": 3
+    },
+    {
+      "name": "Бульба",
+      "weight": "302",
+      "post": "Андрей",
+      "price": "1000",
+      "id": 4
+    },
+    {
+      "name": "Огурец",
+      "weight": "200",
+      "post": "Андрей",
+      "price": "100",
+      "id": 5
+    },
+    {
+      "name": "Огурец",
+      "weight": "200",
+      "post": "Андрей",
+      "price": "100",
+      "id": 6
+    }
+  ],
+  "sellTovar": [
+    {
+      "name": "Огурец",
+      "weight": "100",
+      "price": "300",
+      "id": 1
+    },
+    {
+      "name": "Огурец",
+      "weight": "100",
+      "price": "2000",
+      "id": 2
+    }
+  ]
 }

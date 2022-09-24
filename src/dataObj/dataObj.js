@@ -1,23 +1,9 @@
 // import { base } from "../dataBase/db";
 import styled from "styled-components";
 import ParseData from "../dataParse/dataParse";
+import LoadState from "../load/load";
 
 import { Component } from "react";
-
-const Load = styled.img`
-    width: 100px;
-    max-width: 100px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) rotate(0deg);
-    animation: spin 1s infinite linear;
-
-    @keyframes spin {
-        from { transform: translate(-50%, -50%) rotate(0deg); }
-        to { transform: translate(-50%, -50%) rotate(360deg); }
-    }
-`;
 
 const VegitableContainer = styled.div`
     display: flex;
@@ -65,10 +51,14 @@ class Vegitable extends Component {
     constructor(props){
         super(props);
         this.getItems();
+        this.getChanged();
+        this.getSell();
     }
 
     state = {
-        items: ''
+        items: '',
+        changed: '',
+        sell: ''
     };
 
     dataObj = new ParseData();
@@ -82,14 +72,47 @@ class Vegitable extends Component {
                 })
             });
     }
+    
+    getChanged = () => {
+        this.dataObj.getData('http://localhost:3000/changedTovar')
+            .then(res => res.json())
+            .then(res => {
+                this.setState({
+                    changed: res
+                })
+            });
+    }
+
+    getSell = () => {
+        this.dataObj.getData('http://localhost:3000/sellTovar')
+            .then(res => res.json())
+            .then(res => {
+                this.setState({
+                    sell: res
+                })
+            });
+    }
 
     render() {
-        const {items} = this.state;
+        const {items, changed, sell} = this.state;
 
         let vegitables;
 
-        if (items !== '') {
-            vegitables =  items.map(({name, weight, image, post}, i) => {
+        if (items !== '' && changed !== '' && sell !== '') {
+            vegitables =  items.map(({name, weight, image, post}, i) => {   
+                changed.forEach(chang => {
+                    if (name == chang.name){
+                        weight = +weight + +chang.weight;
+                    }
+                })
+                sell.forEach(selled => {
+                    if (name == selled.name) {
+                        if (weight >= selled.weight) {
+                            weight = +weight - +selled.weight
+                        }
+                    }
+                })
+
                 return (
                     <div className="item" key={i}>
                         <div className="image"><img src={image}/></div>
@@ -100,7 +123,7 @@ class Vegitable extends Component {
                 );
             })
         }else{
-            vegitables = <Load src="https://cdn-icons-png.flaticon.com/512/248/248959.png"/>;
+            vegitables = <LoadState />
         }
     
         return (

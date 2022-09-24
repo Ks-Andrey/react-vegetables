@@ -3,6 +3,7 @@ import BtnsMain from '../btnMain/btnsMain';
 import Vegitable from '../dataObj/dataObj';
 import AddTovar from '../addTovar/addTovar';
 import styled from 'styled-components';
+import SellTovar from '../sellTovar/sellTovar';
 
 const Container = styled.div`
   width: 700px;
@@ -41,6 +42,14 @@ class App extends Component{
     })
   }
 
+  openSellTovar = () => {
+    this.setState({
+      sellTovar: !this.state.sellTovar,
+      btnsOpen: false,
+      backBtn: true,
+    })
+  }
+
   openBack = () => {
     this.setState({
       vegitable: false,
@@ -54,9 +63,10 @@ class App extends Component{
   render() {
     const {vegitable, addTovar, sellTovar, btnsOpen, backBtn} = this.state;
 
-    const buttons = btnsOpen ? <BtnsMain openNewTovar={this.openNewTovar} openVegitable={this.openVegitable}/> : null;
+    const buttons = btnsOpen ? <BtnsMain openSellTovar={this.openSellTovar} openNewTovar={this.openNewTovar} openVegitable={this.openVegitable}/> : null;
     const vegitableOpen = vegitable ? <Vegitable/> : null;
-    const addNewTovar = addTovar ? <AddTovar /> : null
+    const addNewTovar = addTovar ? <AddTovar /> : null;
+    const sell = sellTovar ? <SellTovar /> : null;
 
     const back = backBtn ? <button className='btn btn-primary mt-3' onClick={() => this.openBack()}>Назад</button> : null;
 
@@ -65,6 +75,7 @@ class App extends Component{
         {buttons}
         {vegitableOpen}
         {addNewTovar}
+        {sell}
 
         {back}
       </Container>
