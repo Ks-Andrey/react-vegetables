@@ -50,78 +50,13 @@
       "id": 1
     },
     {
-      "name": "Ванек",
-      "phone": "+3234253455",
-      "id": 4
-    },
-    {
       "name": "Артем",
       "phone": "321443534",
       "id": 5
     }
   ],
-  "changedTovar": [
-    {
-      "name": "Лук",
-      "weight": "1000",
-      "post": "Ванек",
-      "price": "100000",
-      "id": 1
-    },
-    {
-      "name": "Лук",
-      "weight": "1000",
-      "post": "Ванек",
-      "price": "20000",
-      "id": 2
-    },
-    {
-      "name": "Лук",
-      "weight": "500",
-      "post": "Андрей",
-      "price": "1000",
-      "id": 3
-    },
-    {
-      "name": "Огурец",
-      "weight": "1000",
-      "post": "Андрей",
-      "price": "3210",
-      "id": 4
-    }
-  ],
-  "sellTovar": [
-    {
-      "name": "Лук",
-      "weight": "500",
-      "price": "30000",
-      "id": 1
-    },
-    {
-      "name": "Лук",
-      "weight": "1500",
-      "price": "30000",
-      "id": 2
-    },
-    {
-      "name": "Лук",
-      "weight": "500",
-      "price": "2000",
-      "id": 3
-    },
-    {
-      "name": "Огурец",
-      "weight": "500",
-      "price": "1000",
-      "id": 4
-    },
-    {
-      "name": "Огурец",
-      "weight": "500",
-      "price": "3000",
-      "id": 5
-    }
-  ],
+  "changedTovar": [],
+  "sellTovar": [],
   "password": [
     {
       "pass": "564",

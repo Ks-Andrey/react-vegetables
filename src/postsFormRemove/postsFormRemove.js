@@ -25,7 +25,7 @@ class PostsFormRemove extends Component{
         .then(() => {
             getStateData("loading", false);
             getStateData("success", true);
-            getPosts();
+            getPosts('postsTovar');
             
         }).catch(() => {
             getStateData("error", true);

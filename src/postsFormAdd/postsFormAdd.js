@@ -17,19 +17,19 @@ class PostsFormAdd extends Component{
     addNewTovar = (post, phone, e) => {
         e.preventDefault();
 
-        const postData = {name: post, phone: phone};
-        const {getStateData, getPosts} = this.props;
+            const postData = {name: post, phone: phone};
+            const {getStateData, getPosts} = this.props;
 
-        getStateData("loading", true);
+            getStateData("loading", true);
 
-        this.dataObj.newData(postData, 'http://localhost:3000/postsTovar')
-        .then(() => {
-            getStateData("loading", false);
-            getStateData("success", true);
-            getPosts();
-        }).catch(() => {
-            getStateData("error", true);
-        })
+            this.dataObj.newData(postData, 'http://localhost:3000/postsTovar')
+            .then(() => {
+                getStateData("loading", false);
+                getStateData("success", true);
+                getPosts();
+            }).catch(() => {
+                getStateData("error", true);
+            })
     }
 
     onChangeInput = (e, input) => {
@@ -43,15 +43,15 @@ class PostsFormAdd extends Component{
         const {phone, name} = this.state;
 
         return(
-                <form className="form">
+                <form className="form"  onSubmit={(e) => this.addNewTovar(name, phone, e)} >
                     <div className="form-group mb-3">
-                        <input value={name} onChange={(e) => this.onChangeInput(e, "name")} type="text" id="weight" className="form-control" placeholder="Введите имя поставщика"/>
+                        <input value={name} onChange={(e) => this.onChangeInput(e, "name")} type="text" id="weight" className="form-control" required placeholder="Введите имя поставщика"/>
                     </div>
                     <div className="form-group mb-3">
-                        <input value={phone} onChange={(e) => this.onChangeInput(e, "phone")} type="text" id="weight" className="form-control" placeholder="Введите номер телефона"/>
+                        <input value={phone} onChange={(e) => this.onChangeInput(e, "phone")} type="number" id="weight" className="form-control" required placeholder="Введите номер телефона"/>
                     </div>
                     <div className="form-group">
-                        <button onClick={(e) => this.addNewTovar(name, phone, e)} className="w-100 mw-100 btn btn-primary">Добавить</button>
+                        <button className="w-100 mw-100 btn btn-primary">Добавить</button>
                     </div>
                 </form>
         );

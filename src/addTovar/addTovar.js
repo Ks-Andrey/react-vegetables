@@ -120,11 +120,11 @@ class AddTovar extends Component {
                     </div>
                     <div className="form-group mb-3">
                         <label htmlFor="weight" className="mb-1">Вес</label>
-                        <input type="text" id="weight" value={weightSend} onChange={(e) => this.getFormData(e, 'weightSend')} className="form-control" />
+                        <input required type="number" min="1" id="weight" value={weightSend} onChange={(e) => this.getFormData(e, 'weightSend')} className="form-control" />
                     </div>
                     <div className="form-group mb-3">
                         <label htmlFor="price" className="mb-1">Цена</label>
-                        <input type="text" id="price" value={priceSend} onChange={(e) => this.getFormData(e, 'priceSend')} className="form-control" />
+                        <input required type="number" min="1" id="price" value={priceSend} onChange={(e) => this.getFormData(e, 'priceSend')} className="form-control" />
                     </div>
                     <div className="form-group">
                         <button className="w-100 mw-100 btn btn-primary">Отправить</button>

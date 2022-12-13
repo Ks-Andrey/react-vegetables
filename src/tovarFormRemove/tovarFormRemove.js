@@ -27,6 +27,7 @@ class TovarsFormRemove extends Component{
         .then(() => {
             getStateData("loading", false);
             getStateData("success", true);
+            this.getPosts();
         }).catch(() => {
             getStateData("error", true);
         })
@@ -45,8 +46,6 @@ class TovarsFormRemove extends Component{
 
     chooseDel = (e) => {
         const id = this.state.tovars.filter(item => e.target.value == item.name);
-
-        console.log(id);
 
         this.setState({
             delElem: id[0].id,
