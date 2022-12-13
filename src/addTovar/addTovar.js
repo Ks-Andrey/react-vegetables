@@ -54,14 +54,12 @@ class AddTovar extends Component {
             post: postSend,
             price: priceSend
         }
-
-        console.log(formD);
         
         if (weightSend !== '' && postSend !== '' && priceSend !== '' && tovarSend !== '') {
             this.setState({
                 loading: true
             })
-            this.dataObj.newData(formD)
+            this.dataObj.newData(formD, 'http://localhost:3000/changedTovar')
             .then(() => {
                 this.setState({
                     loading: false,
@@ -87,7 +85,7 @@ class AddTovar extends Component {
             .then(res => {
                 this.setState({
                     posts: res,
-                    postSend: res[0]
+                    postSend: res[0].name
                 })
             })
     }
@@ -104,12 +102,13 @@ class AddTovar extends Component {
         }
 
         if (posts !== '') {
-            post = posts.map((item, i) => <option key={i}>{item}</option>)
+            post = posts.map((item, i) => <option key={i}>{item.name}</option>)
         }
 
         return (
             <div className="form-container">
                 {okey}
+                <h1 className="mb-4">Форма приема товара</h1>
                 <form className="form" onSubmit={(e) => {this.changeData(e);}}>
                     <div className="form-group mb-3">
                         <label htmlFor="post" className="mb-1">Поставщик</label>

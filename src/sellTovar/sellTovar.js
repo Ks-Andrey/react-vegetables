@@ -89,6 +89,7 @@ class SellTovar extends Component {
         return (
             <div className="form-container">
                 {okey}
+                <h1 className="mb-4">Форма продажи товара</h1>
                 <form className="form" onSubmit={(e) => {this.onSellTovar(e)}}>
                         <div className="form-group mb-3">
                             <label htmlFor="tovar" className="mb-1">Товар</label>

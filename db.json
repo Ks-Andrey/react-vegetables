@@ -1,127 +1,131 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
   "vegitable": [
     {
       "name": "Огурец",
       "weight": "0",
       "image": "https://calorizator.ru/sites/default/files/imagecache/product_512/product/cucumber-1.jpg",
-      "post": "Андрей",
-      "price": "0"
+      "price": "0",
+      "id": 1
     },
     {
       "name": "Бульба",
       "weight": "0",
       "image": "https://kakvarim.ru/wp-content/uploads/2020/01/kak-varit-kartoshku-post.jpg",
-      "post": "Андрей",
-      "price": "0"
+      "price": "0",
+      "id": 2
     },
     {
       "name": "Лук",
       "weight": "0",
       "image": "https://calorizator.ru/sites/default/files/imagecache/product_512/product/bulb-onion.jpg",
-      "post": "Андрей",
-      "price": "0"
+      "price": "0",
+      "id": 3
     },
     {
       "name": "Перец",
       "weight": "0",
       "image": "https://e2.edimdoma.ru/data/ingredients/0000/1051/1051-ed4_wide.jpg",
-      "post": "Андрей",
-      "price": "0"
+      "price": "0",
+      "id": 4
     },
     {
       "name": "Помидор",
       "weight": "0",
       "image": "https://m.dom-eda.com/uploads/images/catalog/item/c6ebcf64ba/e87b941b85_500.jpg",
-      "post": "Андрей",
-      "price": "0"
+      "price": "0",
+      "id": 5
     },
     {
       "name": "Свекла",
       "weight": "0",
       "image": "https://m-fermer.by/images/svekla.png",
-      "post": "Андрей",
-      "price": "0"
+      "price": "0",
+      "id": 6
     }
   ],
   "postsTovar": [
-    "Андрей",
-    "Максим",
-    "Трофим",
-    "Ден"
+    {
+      "name": "Андрей",
+      "phone": "+375297579370",
+      "id": 1
+    },
+    {
+      "name": "Ванек",
+      "phone": "+3234253455",
+      "id": 4
+    },
+    {
+      "name": "Артем",
+      "phone": "321443534",
+      "id": 5
+    }
   ],
   "changedTovar": [
     {
       "name": "Лук",
-      "weight": "100",
-      "post": "Андрей",
-      "price": "200",
+      "weight": "1000",
+      "post": "Ванек",
+      "price": "100000",
       "id": 1
     },
     {
-      "name": "Огурец",
-      "weight": "211",
-      "post": "Андрей",
-      "price": "32",
+      "name": "Лук",
+      "weight": "1000",
+      "post": "Ванек",
+      "price": "20000",
       "id": 2
     },
     {
-      "name": "Свекла",
-      "weight": "111",
+      "name": "Лук",
+      "weight": "500",
       "post": "Андрей",
-      "price": "22",
+      "price": "1000",
       "id": 3
     },
     {
-      "name": "Бульба",
-      "weight": "302",
+      "name": "Огурец",
+      "weight": "1000",
       "post": "Андрей",
+      "price": "3210",
+      "id": 4
+    }
+  ],
+  "sellTovar": [
+    {
+      "name": "Лук",
+      "weight": "500",
+      "price": "30000",
+      "id": 1
+    },
+    {
+      "name": "Лук",
+      "weight": "1500",
+      "price": "30000",
+      "id": 2
+    },
+    {
+      "name": "Лук",
+      "weight": "500",
+      "price": "2000",
+      "id": 3
+    },
+    {
+      "name": "Огурец",
+      "weight": "500",
       "price": "1000",
       "id": 4
     },
     {
       "name": "Огурец",
-      "weight": "200",
-      "post": "Андрей",
-      "price": "100",
+      "weight": "500",
+      "price": "3000",
       "id": 5
-    },
-    {
-      "name": "Огурец",
-      "weight": "200",
-      "post": "Андрей",
-      "price": "100",
-      "id": 6
     }
   ],
-  "sellTovar": [
+  "password": [
     {
-      "name": "Огурец",
-      "weight": "100",
-      "price": "300",
+      "pass": "564",
       "id": 1
-    },
-    {
-      "name": "Огурец",
-      "weight": "100",
-      "price": "2000",
-      "id": 2
     }
   ]
 }

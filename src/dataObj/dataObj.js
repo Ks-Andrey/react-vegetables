@@ -2,6 +2,7 @@
 import styled from "styled-components";
 import ParseData from "../dataParse/dataParse";
 import LoadState from "../load/load";
+import HistoryTovar from "../historyTovar/historyTovar";
 
 import { Component } from "react";
 
@@ -58,10 +59,22 @@ class Vegitable extends Component {
     state = {
         items: '',
         changed: '',
-        sell: ''
+        sell: '',
+        history: false
     };
 
     dataObj = new ParseData();
+
+    openHistory = (name) => {
+        this.setState({
+            history: name
+        });
+    }
+    closeHistory = () => {
+        this.setState({
+            history: false
+        })
+    }
 
     getItems = () => {
         this.dataObj.getData('http://localhost:3000/vegitable')
@@ -94,12 +107,14 @@ class Vegitable extends Component {
     }
 
     render() {
-        const {items, changed, sell} = this.state;
+        const {items, changed, sell, history} = this.state;
+
+        const dataHistory = history ? <HistoryTovar closeHistory={this.closeHistory} name={history} sell={sell} add={changed} /> : null;
 
         let vegitables;
 
         if (items !== '' && changed !== '' && sell !== '') {
-            vegitables =  items.map(({name, weight, image, post}, i) => {   
+            vegitables = items.map(({name, weight, image}, i) => {   
                 changed.forEach(chang => {
                     if (name == chang.name){
                         weight = +weight + +chang.weight;
@@ -114,11 +129,10 @@ class Vegitable extends Component {
                 })
 
                 return (
-                    <div className="item" key={i}>
+                    <div className="item" key={i} onClick={() => this.openHistory(name)}>
                         <div className="image"><img src={image}/></div>
                         <div className="tittle">{name}</div>
                         <div className="weight">{weight}</div>
-                        <div className="post">{post}</div>
                     </div>
                 );
             })
@@ -127,9 +141,13 @@ class Vegitable extends Component {
         }
     
         return (
-            <VegitableContainer>
-                {vegitables}
-            </VegitableContainer>
+            <>
+                <h1 className="mb-4">Список товара</h1>
+                <VegitableContainer>
+                    {dataHistory}
+                    {vegitables}
+                </VegitableContainer>
+            </>
         );
     }
 }
