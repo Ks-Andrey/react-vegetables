@@ -12,7 +12,7 @@ class TovarsFormRemove extends Component{
     state = {
         postSend: '',
         tovars: '',
-        delElem: ''
+        delElem: '1'
     }
     
 

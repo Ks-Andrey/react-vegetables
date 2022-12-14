@@ -99,11 +99,11 @@ class SellTovar extends Component {
                         </div>
                         <div className="form-group mb-3">
                             <label htmlFor="weight" className="mb-1">Вес</label>
-                            <input required type="number" value={weight} onChange={(e) => this.getFormData(e, 'weight')} id="weight" className="form-control" />
+                            <input required type="number" min="1" value={weight} onChange={(e) => this.getFormData(e, 'weight')} id="weight" className="form-control" />
                         </div>
                         <div className="form-group mb-3">
                             <label htmlFor="price" className="mb-1">Цена</label>
-                            <input required type="number" value={price} onChange={(e) => this.getFormData(e, 'price')} id="price" className="form-control" />
+                            <input required type="number" min="1" value={price} onChange={(e) => this.getFormData(e, 'price')} id="price" className="form-control" />
                         </div>
                         <div className="form-group">
                             <button className="w-100 mw-100 btn btn-primary">Отправить</button>
