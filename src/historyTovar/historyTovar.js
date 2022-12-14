@@ -25,7 +25,7 @@ const Adds = styled.div`
     background: #fff;
     border-radius: 5px;
     box-shadow: 0px 0px 20px rgba(1, 1, 1, .3);
-    width: 500px;
+    min-width: 500px;
     max-width: 100%;
     position: absolute;
     left: 50%;

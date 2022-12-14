@@ -9,7 +9,7 @@ import { Component } from "react";
 const VegitableContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    margin-left: -10px;
     .item{
         width: 30%;
         max-width: 100%;
